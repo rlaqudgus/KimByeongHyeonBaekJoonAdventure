@@ -9,40 +9,35 @@ namespace Codingcoding.Baekjoon
     internal class Bj_10828
     {
         static List<int> myList = new List<int>();
-        static StringBuilder sb= new StringBuilder();
+        static StringBuilder sb = new StringBuilder();
         static void Stack(string input)
         {
             switch (input)
             {
                 case "pop":
-                    if (myList.Count==0)
+                    if (myList.Count == 0)
                     {
                         sb.AppendLine("-1");
-                        //Console.WriteLine("-1");
                     }
                     else
                     {
                         sb.AppendLine(myList[myList.Count - 1].ToString());
-                        //Console.WriteLine(myList[myList.Count - 1]);
                         myList.RemoveAt(myList.Count - 1);
                     }
                     break;
 
                 case "size":
                     sb.AppendLine(myList.Count.ToString());
-                    //Console.WriteLine(myList.Count);
                     break;
 
                 case "empty":
-                    int answer = myList.Count == 0 ? 1 : 0;
-                    sb.AppendLine(answer.ToString());
-                    //Console.WriteLine(answer);
+                    int answer2 = myList.Count == 0 ? 1 : 0;
+                    sb.AppendLine(answer2.ToString());
                     break;
 
                 case "top":
-                    int answer2 = myList.Count == 0 ? -1 : myList[myList.Count - 1];
-                    sb.AppendLine(answer2.ToString());
-                    //Console.WriteLine(answer2);
+                    int answer3 = myList.Count == 0 ? -1 : myList[myList.Count - 1];
+                    sb.AppendLine(answer3.ToString());
                     break;
             }
 
@@ -53,6 +48,7 @@ namespace Codingcoding.Baekjoon
             myList.Add(X);
 
         }
+
         public static void Main()
         {
             //Input testcase N
