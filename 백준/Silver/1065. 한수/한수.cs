@@ -1,39 +1,102 @@
-class Bj_1065
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Codingcoding.Baekjoon
 {
-    public static void Main()
+    internal class Test
     {
-        //Input
-        int inputNum = int.Parse(Console.ReadLine());
+        //Stack
+    //    static StringBuilder sb = new StringBuilder();
+    //    static List<int> myList = new List<int>();
 
-        //Process
-        //연속된 두개의 수의 차이가 일정한가?
-        //반복문을 돌면서 if로 두개 수 차가 일정한지 확인 일정하면 count++
-        //주어진 수가 한자리수 혹은 두자리수라면 무조건 한수임
+    //    public static void Stack(string order)
+    //    {
+    //        switch (order)
+    //        {
+    //            case "pop":
+    //                if (myList.Count==0)
+    //                {
+    //                    sb.AppendLine("-1");
+    //                }
+    //                else
+    //                {
+    //                    int a = myList[myList.Count - 1];
+    //                    sb.AppendLine(a.ToString());
+    //                    myList.RemoveAt(myList.Count - 1);
+    //                }
+                    
+    //                break;
+    //            case "size":
+    //                int b = myList.Count;
+    //                sb.AppendLine(b.ToString());
+    //                break;
+    //            case "empty":
+    //                int c = myList.Count == 0 ? 1 : 0;
+    //                sb.AppendLine(c.ToString());
+    //                break;
+    //            case "top":
+    //                int d = myList.Count == 0 ? -1 : myList[myList.Count - 1];
+    //                sb.AppendLine(d.ToString());
+    //                break;
+    //        }
+    //    }
 
-        int count = 0;
+    //    public static void Stack(string order, int num)
+    //    {
+    //        myList.Add(num);
+    //    }
 
-        for (int i = 1; i <= inputNum; i++)
+    //    public static void Main()
+    //    {
+    //        int count = int.Parse(Console.ReadLine());
+
+    //        for (int i = 0; i < count; i++)
+    //        {
+    //            string[] input = Console.ReadLine().Split(" ");
+
+    //            if (input.Length == 2)
+    //            {
+    //                Stack("push", int.Parse(input[1]));
+    //            }
+
+    //            else Stack(input[0]);
+    //        }
+
+    //        Console.WriteLine(sb);
+    //    }
+
+        //Hansu
+        public static void Main()
         {
-            if (i < 100)
+            string N = Console.ReadLine();
+            int count = 0;
+            //1~99까지는 무조건 한수
+            for (int i = 1; i <= int.Parse(N); i++)
             {
-                count++;
-            }
+                if (i<100)
+                {
+                    count++;
+                    continue;
+                }
 
-            else
-            {
+                //int a = int.Parse(i.Substring(0, 1));
+                //int b = int.Parse(N.Substring(1, 1));
+                //int c = int.Parse(N.Substring(2, 1));
                 string istring = i.ToString();
-                int a = int.Parse(istring.Substring(0, 1));
-                int b = int.Parse(istring.Substring(1, 1));
-                int c = int.Parse(istring.Substring(2, 1));  
-                
+                int a = (int)istring[0];
+                int b = (int)istring[1];
+                int c = (int)istring[2];
+
                 if (a-b==b-c)
                 {
                     count++;
                 }
-            }
+
+            }    
+            Console.WriteLine(count);   
         }
-
-        Console.WriteLine(count);
-
     }
 }
