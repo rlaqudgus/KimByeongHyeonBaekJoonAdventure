@@ -261,45 +261,36 @@ namespace Codingcoding.Baekjoon
 
             for (int i = 0; i < Barray.Length; i++)
             {
-                int target = Barray[i];
-
                 int start = 0;
 
-                int end = Aarray.Length - 1;
+                int end = N - 1;
 
                 int middle = 0;
 
-                while (true)
+                int result = 0;
+
+                while (start<=end)
                 {
                     middle = (start + end) / 2;
 
-                    if (middle == start)
+                    if (Aarray[middle] == Barray[i])
                     {
-                        if (Aarray[start] == target || Aarray[end] == target)
-                        {
-                            sb.AppendLine("1");
-                        }
-
-                        else sb.AppendLine("0");
+                        result = 1;
                         break;
                     }
 
-                    else if (Aarray[middle]==target)
+                    else if (Aarray[middle] < Barray[i])
                     {
-                        sb.AppendLine("1");
-                        break;
+                        start = middle + 1;
                     }
 
-                    else if (Aarray[middle]>target)
+                    else 
                     {
-                        end = middle;
-                    }
-
-                    else if (Aarray[middle]<target)
-                    {
-                        start = middle;
+                        end = middle - 1;
                     }
                 }
+
+                sb.AppendLine(result.ToString());
             }
 
             Console.WriteLine(sb);
